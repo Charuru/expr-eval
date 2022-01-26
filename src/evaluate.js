@@ -50,11 +50,7 @@ export default function evaluate(tokens, expr, values) {
         nstack.push(expr.unaryOps[item.value]);
       } else {
         var v = values[item.value];
-        if (v !== undefined) {
-          nstack.push(v);
-        } else {
-          throw new Error('undefined variable: ' + item.value);
-        }
+        nstack.push(v);
       }
     } else if (type === IOP1) {
       n1 = nstack.pop();
